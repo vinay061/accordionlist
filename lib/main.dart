@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+import 'package:accordionlist/pages/accordion_pages.dart';
+import 'package:accordionlist/pages/anjina_page.dart';
+import 'package:accordionlist/pages/home_page.dart';
+import 'package:accordionlist/pages/listview.dart';
+import 'package:accordionlist/pages/cardlist.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Accordion',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Cardlist(),
+    );
+  }
+}
