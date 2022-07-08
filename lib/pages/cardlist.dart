@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:accordionlist/pages/reusablecard.dart';
+import 'package:accordionlist/pages/listbuilder.dart';
 
 class Cardlist extends StatelessWidget {
   Cardlist();
@@ -18,6 +19,7 @@ class Cardlist extends StatelessWidget {
           Reusecard(name: 'Symptoms'),
           Reusecard(name: 'Drying Hair'),
           Reusecard(name: 'Pain in the left chest'),
+          const ExpansionState(),
         ],
       ),
     );
@@ -110,6 +112,67 @@ class CardThree extends StatelessWidget {
             leading: Icon(Icons.radio_button_unchecked_outlined),
             title: Text('Going to Sleep')),
       ),
+    );
+  }
+}
+
+class ExpansionState extends StatefulWidget {
+  const ExpansionState({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return _ExpansionStateWidget();
+  }
+}
+
+class _ExpansionStateWidget extends State<ExpansionState> {
+  bool _customTileExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Card(
+          child: ExpansionTile(
+            leading: const Icon(
+              Icons.keyboard_double_arrow_left,
+              color: Colors.black,
+            ),
+            title: const Text('Before the Angina Episode'),
+            subtitle: const Text('click to check the events'),
+            trailing: Icon(_customTileExpanded
+                ? Icons.arrow_drop_down_circle
+                : Icons.arrow_drop_down),
+            children: [
+              // const ListTile(
+              //   title: Text('Resting'),
+              // ),
+              // const ListTile(
+              //   title: Text('Walking'),
+              // ),
+              // const ListTile(
+              //   title: Text('Sitting on Couch'),
+              // ),
+              Reusecard(name: 'During the day'),
+              Reusecard(name: 'Woken from Sleep'),
+              Reusecard(name: 'On couch evening'),
+              ExpansionTile(
+                title: const Text('Environmental Pollutants'),
+                children: [
+                  Reusecard(name: 'Noise'),
+                  Reusecard(name: 'Lightning'),
+                  Reusecard(name: 'Crowded Environment')
+                ],
+              ),
+            ],
+            onExpansionChanged: (bool expanded) {
+              setState(() {
+                _customTileExpanded = expanded;
+              });
+            },
+          ),
+        ),
+      ],
     );
   }
 }
