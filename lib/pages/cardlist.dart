@@ -16,7 +16,8 @@ class Cardlist extends StatelessWidget {
           CardTwo(),
           CardThree(),
           Reusecard(name: 'Symptoms'),
-          Reusecard(name: 'Drying Hair')
+          Reusecard(name: 'Drying Hair'),
+          Reusecard(name: 'Pain in the left chest'),
         ],
       ),
     );
