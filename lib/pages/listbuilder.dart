@@ -5,9 +5,9 @@ class ListItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: "ListView.builder",
-      home: const ListViewBuilder(),
+      home: ListViewBuilder(),
     );
   }
 }
